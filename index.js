@@ -39,7 +39,12 @@ const server = http.createServer((req, res) => {
         res.end('This is the OVERVIEW');
     } else if (pathName === '/product') {
         res.end('This is the PRODUCT');
-    } else {
+    } else ( pathName === '/api' ) {
+
+        fs.readFile('./dev-data/data.json')
+        res.end('API');
+    }
+    else {
         res.writeHead(404, {
             'Content-type': 'text/html',
             'my-own-header': 'hello-world'
